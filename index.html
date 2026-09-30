@@ -3,832 +3,964 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RasanAi — Coming Soon</title>
-  <meta name="description" content="India's AI-powered cooking companion. Import recipes from YouTube & Instagram, plan meals, cook smarter. Launching soon on iOS & Android." />
-  <meta property="og:title" content="RasanAi — Coming Soon" />
-  <meta property="og:description" content="India's AI cooking companion. Import recipes, plan meals, cook smarter. Launching soon." />
-  <meta property="og:url" content="https://rasanai.app" />
+  <meta name="theme-color" content="#0A0603" />
+
+  <title>RasanAi: The AI Recipe App for Indian Cooking. Import, Scan and Cook in Your Language</title>
+  <meta name="description" content="RasanAi turns any YouTube cooking video or handwritten recipe into a clean, step by step recipe you can actually cook. Available in English, Hindi, Tamil, Malayalam, Telugu and Kannada. Plan meals, ask an AI cooking assistant, and build a smart shopping list. Free to start." />
+  <meta name="keywords" content="AI recipe app, Indian recipes, import recipe from YouTube, scan handwritten recipe, recipe in Hindi Tamil Malayalam Telugu Kannada, meal planner India, AI cooking assistant, RasanAi, Indian cooking app, recipe extractor" />
+  <link rel="canonical" href="https://rasanai.app/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="Testware Informatics Pvt Ltd" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="RasanAi" />
+  <meta property="og:title" content="RasanAi: Cook Anything, In Your Language" />
+  <meta property="og:description" content="Paste a YouTube link or snap a handwritten page. Our AI gives you a clean recipe you can cook, in six Indian languages. Plan meals and shop smarter." />
+  <meta property="og:url" content="https://rasanai.app/" />
+  <meta property="og:image" content="https://rasanai.app/og-cover.png" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RasanAi: Cook Anything, In Your Language" />
+  <meta name="twitter:description" content="Turn any cooking video or handwritten note into a recipe you can cook. Six Indian languages. AI powered." />
+  <meta name="twitter:image" content="https://rasanai.app/og-cover.png" />
+
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Structured data for search engines and AI answer engines (GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "RasanAi",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "LifestyleApplication",
+    "description": "RasanAi is an AI recipe app for Indian home cooks. It imports recipes from YouTube, scans handwritten recipe notes, and presents clean step by step instructions in English, Hindi, Tamil, Malayalam, Telugu and Kannada. It includes an AI cooking assistant, a weekly meal planner and a smart shopping list.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "sameAs": ["https://www.instagram.com/rasanai.app"],
+    "publisher": { "@type": "Organization", "name": "Testware Informatics Pvt Ltd", "url": "https://rasanai.app" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How does RasanAi import a recipe from YouTube?", "acceptedAnswer": { "@type": "Answer", "text": "Paste a YouTube video or Short link into RasanAi. The AI reads the video description and captions, then returns a clean, structured recipe with ingredients, quantities and step by step instructions." } },
+      { "@type": "Question", "name": "Can RasanAi read a handwritten recipe?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Snap a photo of a handwritten recipe card or notebook page and RasanAi transcribes it, structures it, and even generates a warm food photo for it. It reads English, Hindi and Tamil handwriting." } },
+      { "@type": "Question", "name": "Which languages does RasanAi support?", "acceptedAnswer": { "@type": "Answer", "text": "Every recipe is available in six languages: English, Hindi, Tamil, Malayalam, Telugu and Kannada. You can switch the whole app to your language too." } },
+      { "@type": "Question", "name": "Is RasanAi free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You get fifteen free recipe imports to start. RasanAi Pro unlocks unlimited imports, the AI cooking assistant, the meal planner and the smart shopping list." } }
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red: #A8341F;
-      --red-lt: #D4553C;
+      --red: #C0431F;
+      --red-lt: #E8724E;
       --gold: #E8B84A;
-      --gold-lt: #F5D07A;
-      --cream: #F5EBE0;
-      --bg: #080401;
+      --gold-lt: #F7D98A;
+      --green: #3FA07A;
+      --cream: #F3E9DC;
+      --ink: #F3E9DC;
+      --muted: #B8A897;
+      --bg: #0A0603;
+      --bg-2: #140B05;
+      --glass: rgba(243, 233, 220, 0.04);
+      --glass-brd: rgba(243, 233, 220, 0.10);
+      --maxw: 1180px;
     }
 
-    html, body { height: 100%; }
-
+    /* Set the dark ground on <html> too, so a hard refresh, scroll-restore or
+       overscroll never flashes the browser's default white canvas for a frame. */
+    html { background: var(--bg); scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--bg);
-      color: var(--cream);
+      color: var(--ink);
       overflow-x: hidden;
-      min-height: 100vh;
+      overscroll-behavior: none;
+      line-height: 1.6;
     }
+    ::selection { background: var(--gold); color: #1a0f06; }
 
-    /* ══ AURORA BACKGROUND ═══════════════════════════════════════ */
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    #bg-canvas { position: fixed; inset: 0; z-index: 0; opacity: 0.9; }
     .aurora {
-      position: fixed; inset: 0; z-index: 0;
-      overflow: hidden;
-    }
-    .aurora::before {
-      content: '';
-      position: absolute;
-      width: 140vw; height: 140vw;
-      top: -60vw; left: -20vw;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 180deg at 50% 50%,
-        rgba(168,52,31,0) 0deg,
-        rgba(168,52,31,0.18) 60deg,
-        rgba(232,184,74,0.12) 120deg,
-        rgba(168,52,31,0.08) 180deg,
-        rgba(80,20,10,0.15) 270deg,
-        rgba(168,52,31,0) 360deg
-      );
-      animation: auroraRotate 20s linear infinite;
-      filter: blur(60px);
-    }
-    .aurora::after {
-      content: '';
-      position: absolute;
-      width: 100vw; height: 100vh;
-      top: 30%; left: 0;
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 70% 50% at 20% 60%, rgba(168,52,31,0.12) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(232,184,74,0.07) 0%, transparent 60%);
-      animation: auroraPulse 8s ease-in-out infinite alternate;
+        radial-gradient(60% 50% at 75% 12%, rgba(192,67,31,0.28), transparent 70%),
+        radial-gradient(50% 45% at 15% 25%, rgba(232,184,74,0.16), transparent 70%),
+        radial-gradient(70% 60% at 50% 100%, rgba(63,160,122,0.10), transparent 70%);
+      filter: blur(10px);
     }
-    @keyframes auroraRotate { to { transform: rotate(360deg); } }
-    @keyframes auroraPulse {
-      from { opacity: 0.6; transform: scale(1); }
-      to   { opacity: 1;   transform: scale(1.15); }
+    /* Rising steam, like a warm kitchen */
+    .steam { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+    .steam i { position: absolute; bottom: -25%; width: 46vw; height: 90vh; border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(243,233,220,0.06), rgba(232,184,74,0.03) 45%, transparent 65%);
+      filter: blur(46px); opacity: 0; animation: rise linear infinite; }
+    .steam i:nth-child(1) { left: 4%;  animation-duration: 15s; animation-delay: 0s; }
+    .steam i:nth-child(2) { left: 30%; animation-duration: 19s; animation-delay: 4s; }
+    .steam i:nth-child(3) { left: 55%; animation-duration: 17s; animation-delay: 8s; }
+    .steam i:nth-child(4) { left: 78%; animation-duration: 21s; animation-delay: 2s; }
+    .steam i:nth-child(5) { left: 45%; animation-duration: 23s; animation-delay: 11s; }
+    @keyframes rise { 0% { transform: translateY(15%) scale(0.9); opacity: 0; } 25% { opacity: 0.7; } 100% { transform: translateY(-125%) scale(1.5); opacity: 0; } }
+
+    /* Drifting kitchen utensils — subtle line-art silhouettes, felt not seen.
+       Three depth tiers give parallax; slow ease-in-out drift keeps it calm. */
+    .utensils { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1); }
+    .utensils .ut { position: absolute; color: var(--gold); will-change: transform;
+      animation: udrift var(--dur, 60s) ease-in-out var(--del, 0s) infinite alternate; }
+    .utensils .ut svg { display: block; width: 100%; height: 100%;
+      stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+    .utensils .u-near { width: 152px; height: 152px; opacity: 0.11; }
+    .utensils .u-mid  { width: 118px; height: 118px; opacity: 0.075; filter: blur(0.5px); }
+    .utensils .u-far  { width: 88px;  height: 88px;  opacity: 0.05;  filter: blur(1.6px); }
+    @keyframes udrift {
+      0%   { transform: translate3d(0, 0, 0) rotate(calc(var(--dir, 1) * -5deg)); }
+      100% { transform: translate3d(calc(var(--dir, 1) * 24px), -28px, 0) rotate(calc(var(--dir, 1) * 7deg)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .utensils { display: none; }
     }
 
-    /* Noise grain */
-    .grain {
-      position: fixed; inset: 0; z-index: 1; pointer-events: none;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 256px;
+    /* ── Welcome explainer modal ─────────────────────────────────── */
+    .welcome { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 18px; }
+    .welcome.open { display: flex; }
+    .w-scrim { position: absolute; inset: 0; background: rgba(6,3,1,0.84); backdrop-filter: blur(9px); animation: wfade .3s ease; }
+    @keyframes wfade { from { opacity: 0 } to { opacity: 1 } }
+    .w-card { position: relative; width: min(94vw, 412px); border-radius: 28px; overflow: hidden;
+      background: radial-gradient(120% 85% at 50% -8%, #2c1a10, #150b06 58%, #0b0503);
+      border: 1px solid var(--glass-brd); box-shadow: 0 40px 130px -28px rgba(0,0,0,0.85);
+      animation: wpop .5s cubic-bezier(.2,.9,.25,1); }
+    @keyframes wpop { from { opacity: 0; transform: translateY(22px) scale(.95) } to { opacity: 1; transform: none } }
+    .w-progress { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: rgba(243,233,220,0.12); z-index: 9; }
+    .w-progress i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold), var(--red-lt)); }
+    .w-skip { position: absolute; top: 12px; right: 12px; z-index: 10; font-size: 12px; font-weight: 600; color: var(--muted);
+      background: rgba(243,233,220,0.09); border: 1px solid var(--glass-brd); border-radius: 100px; padding: 6px 13px; cursor: pointer; transition: color .2s; }
+    .w-skip:hover { color: var(--cream); }
+    .w-stage { position: relative; height: 566px; max-height: 76vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .w-stage::before { content: ''; position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(60% 42% at 50% 16%, rgba(192,67,31,0.24), transparent 70%), radial-gradient(52% 40% at 72% 104%, rgba(232,184,74,0.16), transparent 70%); }
+
+    .w-intro { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; opacity: 0; transition: opacity .5s ease; }
+    .w-card[data-scene="0"] .w-intro { opacity: 1; }
+    .w-intro img { width: 78px; height: 78px; border-radius: 21px; box-shadow: 0 14px 44px rgba(192,67,31,0.5); animation: wlogo .8s cubic-bezier(.2,.9,.2,1); }
+    @keyframes wlogo { from { opacity: 0; transform: scale(.55) translateY(12px) } to { opacity: 1; transform: none } }
+    .w-intro .wm { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--cream); }
+    .w-intro .wm b { color: var(--gold); font-weight: 400; }
+    .w-intro .tag { font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+
+    .w-phone { position: relative; z-index: 3; width: 236px; height: 490px; border-radius: 38px; padding: 10px;
+      background: linear-gradient(160deg,#1c130b,#0c0703); box-shadow: 0 30px 72px rgba(0,0,0,0.6), 0 0 0 1.5px rgba(243,233,220,0.08);
+      opacity: 0; transform: scale(.82) translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.25,1); }
+    .w-card:not([data-scene="0"]):not([data-scene="5"]) .w-phone { opacity: 1; transform: none; }
+    .w-card[data-scene="5"] .w-phone { opacity: .14; transform: scale(.9); }
+    .w-screen { position: relative; width: 100%; height: 100%; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg,#17100a,#0e0805); }
+    .w-view { position: absolute; inset: 0; padding: 15px 13px; opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
+    .w-screen[data-view="search"] .w-view.search,
+    .w-screen[data-view="recipe"] .w-view.recipe,
+    .w-screen[data-view="cook"] .w-view.cook { opacity: 1; transform: none; }
+    .w-flash { position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: 0; background: linear-gradient(115deg, transparent 32%, rgba(255,240,210,0.55) 50%, transparent 68%); }
+    .w-card[data-scene="3"] .w-flash { animation: wflash .8s ease; }
+    @keyframes wflash { 0% { opacity: 0; transform: translateX(-45%) } 42% { opacity: 1 } 100% { opacity: 0; transform: translateX(45%) } }
+
+    .w-caption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 8; padding: 26px 22px 26px; text-align: center;
+      background: linear-gradient(0deg, rgba(9,4,2,0.95) 40%, transparent); }
+    .w-caption b { display: block; font-family: 'DM Serif Display', serif; font-size: 21px; color: var(--cream); line-height: 1.22; }
+    .w-caption.pop b { animation: wcap .5s cubic-bezier(.2,.9,.2,1); }
+    @keyframes wcap { from { opacity: 0; transform: translateY(11px) scale(.96) } to { opacity: 1; transform: none } }
+    .w-card[data-scene="5"] .w-caption { opacity: 0; }
+
+    .w-end { position: absolute; inset: 0; z-index: 9; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; text-align: center; padding: 26px; opacity: 0; pointer-events: none; transition: opacity .55s ease; }
+    .w-card[data-scene="5"] .w-end { opacity: 1; pointer-events: auto; }
+    .w-end img { width: 62px; height: 62px; border-radius: 17px; box-shadow: 0 12px 40px rgba(192,67,31,0.45); }
+    .w-end .et { font-family: 'DM Serif Display', serif; font-size: 27px; color: var(--cream); }
+    .w-end .es { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 17px; color: var(--gold); margin-top: -4px; }
+    .w-end .ebtns { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; width: 100%; max-width: 262px; }
+    .w-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(100deg, var(--gold), var(--red-lt)); color: #1a0f06; font-weight: 800; font-size: 15px; padding: 14px; border-radius: 100px; border: none; cursor: pointer; }
+    .w-explore { background: transparent; color: var(--muted); border: 1px solid var(--glass-brd); padding: 11px; border-radius: 100px; cursor: pointer; font-size: 14px; }
+    .w-explore:hover { color: var(--cream); }
+
+    /* phone: search view */
+    .ws-bar { display: flex; align-items: center; gap: 8px; background: rgba(243,233,220,0.06); border: 1px solid var(--glass-brd); border-radius: 12px; padding: 9px 11px; font-size: 12.5px; color: var(--cream); margin-top: 26px; }
+    .ws-bar .ic { color: var(--muted); }
+    .ws-cursor { display: inline-block; width: 1.5px; height: 13px; background: var(--gold); margin-left: 1px; animation: wblink 1s step-end infinite; vertical-align: -2px; }
+    @keyframes wblink { 50% { opacity: 0 } }
+    .ws-list { margin-top: 12px; display: flex; flex-direction: column; gap: 9px; }
+    .ws-card { display: flex; gap: 9px; background: rgba(243,233,220,0.04); border: 1px solid rgba(243,233,220,0.08); border-radius: 13px; padding: 7px; position: relative; opacity: 0; transform: translateY(9px); }
+    .w-screen[data-view="search"] .ws-card { animation: wrise .5s ease forwards; }
+    .w-screen[data-view="search"] .ws-card:nth-child(2) { animation-delay: .12s; }
+    .w-screen[data-view="search"] .ws-card:nth-child(3) { animation-delay: .24s; }
+    @keyframes wrise { to { opacity: 1; transform: none } }
+    .ws-thumb { width: 74px; height: 52px; border-radius: 9px; background-size: cover; background-position: center; position: relative; flex: 0 0 auto; }
+    .ws-thumb::after { content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 30px; height: 22px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 20'%3E%3Crect width='28' height='20' rx='5' fill='%23FF0000'/%3E%3Cpath d='M11 6l8 4-8 4z' fill='white'/%3E%3C/svg%3E") center / contain no-repeat;
+      filter: drop-shadow(0 1px 3px rgba(0,0,0,.55)); }
+    .ws-dur { position: absolute; right: 3px; bottom: 3px; background: rgba(0,0,0,.75); color: #fff; font-size: 8px; padding: 1px 3px; border-radius: 3px; }
+    .ws-meta { flex: 1; min-width: 0; }
+    .ws-meta b { display: block; font-size: 11.5px; color: var(--cream); line-height: 1.25; overflow: hidden; }
+    .ws-meta span { font-size: 9.5px; color: var(--muted); }
+    .ws-ext { position: absolute; right: 8px; bottom: 8px; font-size: 9px; font-weight: 800; letter-spacing: .04em; color: #1a0f06; background: linear-gradient(100deg, var(--gold), var(--red-lt)); padding: 4px 9px; border-radius: 100px; opacity: 0; transform: scale(.8); }
+    .w-card[data-scene="2"] .ws-card:first-child .ws-ext { animation: wtap 1.2s ease forwards; }
+    @keyframes wtap { 0% { opacity: 0; transform: scale(.8) } 20% { opacity: 1; transform: scale(1) } 55% { transform: scale(.9) } 70% { transform: scale(1.05) } 100% { opacity: 1; transform: scale(1) } }
+    .w-card[data-scene="2"] .ws-card:first-child { box-shadow: 0 0 0 2px rgba(232,184,74,0.5); }
+
+    /* phone: recipe view */
+    .wr-top { margin-top: 24px; height: 84px; border-radius: 12px; background-size: cover; background-position: center; position: relative; }
+    .wr-lang { position: absolute; top: 7px; right: 7px; font-size: 10px; font-weight: 700; color: #1a0f06; background: var(--gold); padding: 3px 9px; border-radius: 100px; }
+    .wr-h { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--cream); margin-top: 10px; }
+    .wr-sub { font-size: 10px; color: var(--gold-lt); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-top: 8px; }
+    .wr-ing { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .wr-ing span { font-size: 10px; color: var(--cream); background: rgba(243,233,220,0.06); border: 1px solid var(--glass-brd); border-radius: 100px; padding: 3px 8px; }
+    .wr-steps { margin-top: 9px; display: flex; flex-direction: column; gap: 7px; }
+    .wr-step { display: flex; gap: 8px; font-size: 10.5px; color: var(--muted); line-height: 1.35; }
+    .wr-step .n { flex: 0 0 auto; width: 15px; height: 15px; border-radius: 50%; background: var(--red); color: #fff; font-size: 8.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+    /* phone: cook (hands-free) view */
+    .wc { margin-top: 34px; text-align: center; }
+    .wc-tag { font-size: 10px; font-weight: 800; letter-spacing: .12em; color: var(--gold-lt); }
+    .wc-step { font-family: 'DM Serif Display', serif; font-size: 19px; color: var(--cream); line-height: 1.3; margin-top: 14px; padding: 0 6px; }
+    .wc-wave { display: flex; align-items: center; justify-content: center; gap: 4px; height: 40px; margin-top: 24px; }
+    .wc-wave i { width: 4px; border-radius: 3px; background: linear-gradient(var(--gold), var(--red-lt)); }
+    .w-screen[data-view="cook"] .wc-wave i { animation: wwave 1s ease-in-out infinite; }
+    .wc-wave i:nth-child(1){height:12px;animation-delay:0s} .wc-wave i:nth-child(2){height:26px;animation-delay:.1s} .wc-wave i:nth-child(3){height:38px;animation-delay:.2s} .wc-wave i:nth-child(4){height:22px;animation-delay:.3s} .wc-wave i:nth-child(5){height:34px;animation-delay:.15s} .wc-wave i:nth-child(6){height:16px;animation-delay:.25s} .wc-wave i:nth-child(7){height:28px;animation-delay:.05s}
+    @keyframes wwave { 0%,100% { transform: scaleY(.5) } 50% { transform: scaleY(1) } }
+    .wc-mic { display: inline-flex; align-items: center; gap: 7px; margin-top: 22px; font-size: 11px; color: var(--cream); background: rgba(63,160,122,0.16); border: 1px solid rgba(63,160,122,0.3); border-radius: 100px; padding: 7px 14px; }
+    .wc-mic .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 1.6s infinite; }
+
+    .intro-btn { background: rgba(232,184,74,0.10); border: 1px solid rgba(232,184,74,0.28); color: var(--gold-lt); font-size: 13px; font-weight: 600; padding: 7px 13px; border-radius: 100px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .intro-btn:hover { background: rgba(232,184,74,0.18); }
+
+    @media (max-width: 480px) {
+      .w-stage { height: 68vh; }
+      .w-phone { width: 220px; height: 460px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .w-card, .w-intro img, .w-phone, .w-flash, .ws-card, .ws-ext, .wc-wave i { animation: none !important; }
+      .w-phone, .ws-card { opacity: 1 !important; transform: none !important; }
     }
 
-    /* ══ NAV ═════════════════════════════════════════════════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 20px 72px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(8,4,1,0.6), transparent);
+    /* ── Our First Chef (ambassador) ─────────────────────────────── */
+    .chef { padding: 96px 0; }
+    .chef-grid { display: grid; grid-template-columns: 0.8fr 1fr; gap: 60px; align-items: center; }
+    .chef-media { position: relative; justify-self: center; width: max-content; }
+    .chef-photo { width: 330px; max-width: 76vw; height: auto; display: block; border-radius: 26px;
+      border: 1px solid rgba(232,184,74,0.18);
+      box-shadow: 0 44px 100px -34px rgba(192,67,31,0.55), 0 0 0 1px rgba(232,184,74,0.12); }
+    .chef-glow { position: absolute; inset: -16% -12% -20% -12%; z-index: -1; border-radius: 40px; filter: blur(14px);
+      background: radial-gradient(58% 52% at 48% 38%, rgba(192,67,31,0.4), transparent 70%), radial-gradient(52% 50% at 62% 92%, rgba(232,184,74,0.22), transparent 70%); }
+    /* gold verified seal */
+    .chef-seal { position: absolute; bottom: -20px; right: -20px; width: 118px; height: 118px; z-index: 3; transition: transform .45s cubic-bezier(.2,.9,.2,1); }
+    .chef-seal .ring { position: absolute; inset: 0; fill: #FDE9C9; font-family: 'Inter', sans-serif; font-size: 8.5px; font-weight: 700; letter-spacing: .1em; transform-origin: 50% 50%; animation: chefspin 24s linear infinite; }
+    @keyframes chefspin { to { transform: rotate(360deg); } }
+    .chef-seal .disc { position: absolute; inset: 25px; border-radius: 50%;
+      background: radial-gradient(circle at 34% 30%, #F0C46A, #C4872F 62%, #9c6a24 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: 0 8px 22px -8px rgba(0,0,0,.6), inset 0 2px 6px rgba(255,255,255,.4); border: 1.5px solid rgba(255,247,236,.5); }
+    .chef-seal .disc .star { font-size: 17px; line-height: 1; color: #5E1B0E; }
+    .chef-seal .disc .t1 { font-family: 'DM Serif Display', serif; font-size: 16px; color: #41140a; line-height: 1; margin-top: 1px; }
+    .chef-seal .disc .t2 { font-size: 7.5px; font-weight: 700; letter-spacing: .15em; color: #6b2412; text-transform: uppercase; margin-top: 2px; }
+    /* hover easter-egg: Dev's speech bubble */
+    .chef-bubble { position: absolute; top: 4%; left: -6%; z-index: 4; background: var(--cream); color: #1a0f06; font-size: 13px; font-weight: 700;
+      padding: 9px 14px; border-radius: 14px 14px 14px 4px; box-shadow: 0 14px 34px rgba(0,0,0,.45); white-space: nowrap;
+      opacity: 0; transform: translateY(8px) scale(.85); transform-origin: bottom left; transition: all .32s cubic-bezier(.2,.9,.2,1); pointer-events: none; }
+    .chef-media:hover .chef-bubble { opacity: 1; transform: none; }
+    .chef-media:hover .chef-seal { transform: scale(1.07) rotate(-7deg); }
+    /* text side */
+    .chef-eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red-lt); margin-bottom: 16px; }
+    .chef-h { font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 800; }
+    .chef-p { color: var(--muted); font-size: 17px; line-height: 1.72; margin-top: 18px; max-width: 490px; }
+    .chef-accent { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 23px; color: var(--gold-lt); margin-top: 20px; }
+    .chef-name { display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; font-size: 14px; color: var(--cream); }
+    .chef-name b { color: var(--gold); }
+    .chef-name .cd { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+    @media (max-width: 820px) {
+      .chef { padding: 70px 0; }
+      .chef-grid { grid-template-columns: 1fr; gap: 52px; text-align: center; }
+      .chef-p, .chef-accent { margin-inline: auto; }
+      .chef-name { justify-content: center; }
     }
-    .logo {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none;
-    }
-    .logo-mark {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: linear-gradient(135deg, #C94E35, #7A2414);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(168,52,31,0.5);
-      flex-shrink: 0;
-    }
-    .logo-text {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px; color: var(--cream);
-      letter-spacing: -0.3px;
-    }
-    .logo-text b { color: var(--gold); font-weight: 400; }
-    .nav-pill {
-      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; color: rgba(245,235,224,0.35);
-      border: 1px solid rgba(245,235,224,0.08);
-      padding: 8px 16px; border-radius: 100px;
-      background: rgba(245,235,224,0.03);
-    }
+    @media (prefers-reduced-motion: reduce) { .chef-seal .ring { animation: none; } }
 
-    /* ══ HERO ════════════════════════════════════════════════════ */
-    .hero {
-      position: relative; z-index: 2;
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 40px;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 160px 72px 80px 72px;
-    }
+    .content { position: relative; z-index: 2; }
 
-    /* Left column */
-    .hero-left {
-      display: flex; flex-direction: column;
-      gap: 32px;
-      animation: heroIn 1s ease both;
+    .hl { position: relative; white-space: nowrap; color: #fff; }
+    .hl::after {
+      content: ''; position: absolute; left: -2px; right: -2px; bottom: 0.06em; height: 0.42em; z-index: -1;
+      background: linear-gradient(90deg, var(--gold), var(--red-lt));
+      opacity: 0.85; border-radius: 3px; transform: skewX(-6deg);
     }
-    @keyframes heroIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .grad { background: linear-gradient(100deg, var(--gold-lt), var(--red-lt) 60%, var(--gold)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .serif { font-family: 'DM Serif Display', serif; font-weight: 400; }
 
-    .launch-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      width: fit-content;
-      background: rgba(168,52,31,0.12);
-      border: 1px solid rgba(168,52,31,0.3);
-      border-radius: 100px; padding: 8px 16px 8px 10px;
-      animation: heroIn 1s 0s ease both;
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background .3s ease, box-shadow .3s ease; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+    header.scrolled { background: rgba(10,6,3,0.72); backdrop-filter: blur(14px); box-shadow: 0 10px 30px rgba(0,0,0,0.34); }
+    header.scrolled .nav { padding: 12px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+    .brand .dot { width: 34px; height: 34px; border-radius: 10px; display: block; box-shadow: 0 6px 20px rgba(192,67,31,0.45); }
+    .brand b { color: var(--gold); }
+    .brand .wm { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; font-size: 24px; letter-spacing: -0.01em; }
+    .nav-links { display: flex; align-items: center; gap: 30px; }
+    .nav-links a { color: var(--muted); font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 15px;
+      padding: 13px 24px; border-radius: 100px; cursor: pointer; border: none; transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s;
+      background: linear-gradient(100deg, var(--gold), var(--red-lt)); color: #1a0f06;
+      box-shadow: 0 10px 30px rgba(232,184,74,0.28);
     }
-    .badge-dot-wrap {
-      width: 24px; height: 24px; border-radius: 50%;
-      background: rgba(168,52,31,0.2);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .badge-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #F0886A;
-      animation: dotPulse 2s ease-in-out infinite;
-    }
-    @keyframes dotPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(240,136,106,0.5); }
-      50% { box-shadow: 0 0 0 6px rgba(240,136,106,0); }
-    }
-    .badge-text {
-      font-size: 12px; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; color: #F0886A;
-    }
+    .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 16px 40px rgba(232,184,74,0.4); }
+    .btn.ghost { background: var(--glass); color: var(--ink); border: 1px solid var(--glass-brd); box-shadow: none; }
+    .btn.ghost:hover { background: rgba(243,233,220,0.08); }
+    .nav .btn { padding: 11px 20px; font-size: 14px; }
 
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(42px, 4.8vw, 72px);
-      line-height: 1.0;
-      color: var(--cream);
-      animation: heroIn 1s 0.1s ease both;
-    }
-    h1 .line-gold {
-      display: block;
-      background: linear-gradient(100deg, var(--gold) 0%, #F0886A 70%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    h1 .line-italic { font-style: italic; }
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 130px 0 80px; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 40px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gold-lt);
+      background: rgba(232,184,74,0.10); border: 1px solid rgba(232,184,74,0.25); padding: 7px 14px; border-radius: 100px; margin-bottom: 22px; }
+    .eyebrow .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(63,160,122,0.7); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(63,160,122,0.6);} 70% { box-shadow: 0 0 0 8px rgba(63,160,122,0);} 100% { box-shadow: 0 0 0 0 rgba(63,160,122,0);} }
+    h1.hero-title { font-size: clamp(40px, 6vw, 74px); line-height: 1.02; letter-spacing: -0.03em; font-weight: 900; margin-bottom: 22px; }
+    .hero-sub { font-size: clamp(16px, 1.5vw, 19px); color: var(--muted); max-width: 520px; margin-bottom: 32px; }
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .hero-meta { display: flex; gap: 26px; margin-top: 34px; flex-wrap: wrap; }
+    .hero-meta .m b { font-size: 26px; font-weight: 800; color: var(--ink); font-family: 'DM Serif Display', serif; }
+    .hero-meta .m span { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
 
-    .hero-desc {
-      font-size: 17px; line-height: 1.7;
-      color: rgba(245,235,224,0.5);
-      max-width: 480px;
-      animation: heroIn 1s 0.2s ease both;
+    .phone-stage { perspective: 1400px; display: grid; place-items: center; }
+    .phone {
+      width: 290px; height: 590px; border-radius: 44px; position: relative;
+      background: linear-gradient(160deg, #1c130b, #0c0703); padding: 12px;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 0 1.5px rgba(243,233,220,0.08), inset 0 0 0 2px rgba(0,0,0,0.5);
+      transform: rotateY(-16deg) rotateX(6deg) rotateZ(1deg); transition: transform .4s ease; will-change: transform;
     }
-    .hero-desc strong { color: rgba(245,235,224,0.8); font-weight: 500; }
+    .phone::after { content:''; position:absolute; top:16px; left:50%; transform:translateX(-50%); width:120px; height:26px; background:#0c0703; border-radius:0 0 16px 16px; z-index:5; }
+    .screen { width: 100%; height: 100%; border-radius: 33px; overflow: hidden; background: linear-gradient(180deg, #17100a, #0e0805); position: relative; }
+    .screen-top { padding: 44px 18px 14px; }
+    .app-tag { font-size: 11px; color: var(--gold-lt); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .app-h { font-family: 'DM Serif Display', serif; font-size: 23px; margin-top: 6px; color: var(--cream); }
+    /* Auto-scrolling curved recipe feed inside the phone */
+    .feed { position: absolute; top: 92px; left: 14px; right: 14px; bottom: 12px; overflow: hidden; perspective: 620px; perspective-origin: 50% 50%;
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+              mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent); }
+    .track { display: flex; flex-direction: column; gap: 12px; animation: feedscroll 26s linear infinite; transform-style: preserve-3d; }
+    @keyframes feedscroll { to { transform: translateY(-50%); } }
+    .fc { border-radius: 16px; overflow: hidden; border: 1px solid rgba(243,233,220,0.09); background: rgba(243,233,220,0.04); box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transform-origin: center center; will-change: transform, opacity; backface-visibility: hidden; }
+    .fc-img { height: 100px; background-size: cover; background-position: center; background-color: #241811; }
+    .fc-b { padding: 9px 12px 11px; }
+    .fc-b h4 { font-size: 14px; color: var(--cream); font-weight: 700; letter-spacing: -0.01em; }
+    .fc-b p { font-size: 11px; color: var(--muted); margin-top: 4px; display: flex; align-items: center; gap: 7px; }
+    .src { font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 20px; }
+    .src.yt { color: #ffb3a1; background: rgba(192,67,31,0.22); }
+    .src.hw { color: #7fdcbb; background: rgba(63,160,122,0.20); }
 
-    /* Countdown */
-    .countdown-block {
-      display: flex; flex-direction: column; gap: 12px;
-      animation: heroIn 1s 0.3s ease both;
-    }
-    .cd-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: rgba(245,235,224,0.25);
-    }
-    .cd-row { display: flex; align-items: center; gap: 8px; }
-    .cd-unit {
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-    }
-    .cd-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(36px, 4vw, 56px);
-      line-height: 1;
-      color: var(--cream);
-      background: rgba(245,235,224,0.04);
-      border: 1px solid rgba(245,235,224,0.08);
-      border-top: 1px solid rgba(245,235,224,0.15);
-      border-radius: 14px;
-      width: 82px; height: 82px;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
-      transition: transform 0.2s ease;
-    }
-    .cd-num::after {
-      content: '';
-      position: absolute; top: 50%; left: 0; right: 0;
-      height: 1px;
-      background: rgba(245,235,224,0.06);
-    }
-    .cd-tag {
-      font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; color: rgba(245,235,224,0.2);
-    }
-    .cd-sep {
-      font-family: 'DM Serif Display', serif;
-      font-size: 40px; color: rgba(245,235,224,0.15);
-      align-self: flex-start; padding-top: 8px;
-      margin: 0 2px;
-    }
+    section { padding: 100px 0; }
+    .sec-head { text-align: center; max-width: 680px; margin: 0 auto 60px; }
+    .sec-tag { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red-lt); margin-bottom: 14px; }
+    h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.02em; font-weight: 800; }
+    .sec-head p { color: var(--muted); margin-top: 16px; font-size: 17px; }
 
-    /* Waitlist */
-    .waitlist-block {
-      display: flex; flex-direction: column; gap: 12px;
-      max-width: 480px;
-      animation: heroIn 1s 0.4s ease both;
-    }
-    .wl-form {
-      display: flex; align-items: center;
-      background: rgba(245,235,224,0.05);
-      border: 1px solid rgba(245,235,224,0.1);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 0.25s, box-shadow 0.25s;
-    }
-    .wl-form:focus-within {
-      border-color: rgba(168,52,31,0.4);
-      box-shadow: 0 0 0 4px rgba(168,52,31,0.08);
-    }
-    .wl-input {
-      flex: 1; background: none; border: none; outline: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px; color: var(--cream);
-      padding: 16px 20px;
-    }
-    .wl-input::placeholder { color: rgba(245,235,224,0.25); }
-    .wl-btn {
-      margin: 6px; flex-shrink: 0;
-      background: linear-gradient(135deg, #C94E35, #8B2818);
-      color: var(--cream); border: none; cursor: pointer;
-      padding: 13px 24px; border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 700;
-      transition: all 0.25s;
-      display: flex; align-items: center; gap: 8px;
-      box-shadow: 0 4px 16px rgba(168,52,31,0.4);
-    }
-    .wl-btn:hover {
-      background: linear-gradient(135deg, #D4553C, #A8341F);
-      box-shadow: 0 6px 24px rgba(168,52,31,0.55);
-      transform: translateY(-1px);
-    }
-    .wl-meta {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 13px; color: rgba(245,235,224,0.25);
-    }
-    .wl-count {
-      display: flex; align-items: center; gap: 8px;
-    }
-    .wl-avatars {
-      display: flex;
-    }
-    .wl-avatar {
-      width: 22px; height: 22px; border-radius: 50%;
-      border: 1.5px solid rgba(8,4,1,0.8);
-      margin-left: -6px; font-size: 11px;
-      display: flex; align-items: center; justify-content: center;
-      background: rgba(168,52,31,0.3);
-    }
-    .wl-avatar:first-child { margin-left: 0; }
-    .wl-success {
-      display: none;
-      background: rgba(31,122,79,0.12);
-      border: 1px solid rgba(31,122,79,0.25);
-      border-radius: 14px; padding: 16px 20px;
-      font-size: 14px; font-weight: 600; color: #5BB088;
-      text-align: center;
-    }
+    .reveal { opacity: 0; transform: translateY(34px); }
 
-    /* Store badges */
-    .store-row {
-      display: flex; gap: 12px;
-      animation: heroIn 1s 0.5s ease both;
-    }
-    .store-btn {
-      display: flex; align-items: center; gap: 10px;
-      background: rgba(245,235,224,0.05);
-      border: 1px solid rgba(245,235,224,0.1);
-      border-radius: 14px; padding: 12px 20px;
-      text-decoration: none;
-      transition: all 0.25s;
-      cursor: default;
-      position: relative; overflow: hidden;
-    }
-    .store-btn::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(245,235,224,0.05), transparent);
-      opacity: 0; transition: opacity 0.25s;
-    }
-    .store-btn:hover::before { opacity: 1; }
-    .store-btn:hover { border-color: rgba(245,235,224,0.18); transform: translateY(-2px); }
-    .store-icon { font-size: 24px; }
-    .store-text { display: flex; flex-direction: column; gap: 1px; }
-    .store-sub { font-size: 10px; color: rgba(245,235,224,0.35); font-weight: 500; }
-    .store-name { font-size: 15px; font-weight: 700; color: var(--cream); }
-    .store-soon {
-      position: absolute; top: 8px; right: 10px;
-      font-size: 9px; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(232,184,74,0.12);
-      border: 1px solid rgba(232,184,74,0.2);
-      padding: 2px 7px; border-radius: 100px;
-    }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .step { padding: 30px; border-radius: 22px; background: var(--glass); border: 1px solid var(--glass-brd); position: relative; overflow: hidden; }
+    .step .n { font-family: 'DM Serif Display', serif; font-size: 54px; color: rgba(232,184,74,0.22); line-height: 1; }
+    .step h3 { font-size: 20px; margin: 8px 0 8px; font-weight: 700; }
+    .step p { color: var(--muted); font-size: 14.5px; }
 
-    /* ══ RIGHT COLUMN — PHONE ════════════════════════════════════ */
-    .hero-right {
-      position: relative;
-      display: flex; align-items: center; justify-content: center;
-      animation: phoneIn 1.2s 0.3s ease both;
-    }
-    @keyframes phoneIn {
-      from { opacity: 0; transform: translateY(30px) scale(0.95); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
+    .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+    .card { border-radius: 24px; padding: 28px; background: var(--glass); border: 1px solid var(--glass-brd); position: relative; overflow: hidden; transition: transform .3s ease, border-color .3s; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(232,184,74,0.35); }
+    .card .ic { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; font-size: 26px; margin-bottom: 16px;
+      background: linear-gradient(140deg, rgba(232,184,74,0.18), rgba(192,67,31,0.14)); border: 1px solid rgba(232,184,74,0.2); }
+    .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .card p { color: var(--muted); font-size: 14.5px; }
+    .card.big { grid-column: span 3; }
+    .card.sm { grid-column: span 2; }
+    .card.wide { grid-column: span 3; }
+    .card .glow { position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(232,184,74,0.18), transparent 70%); top: -60px; right: -60px; pointer-events: none; }
 
-    /* Glow behind phone */
-    .phone-glow {
-      position: absolute;
-      width: 320px; height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(168,52,31,0.25) 0%, transparent 70%);
-      filter: blur(40px);
-      animation: glowPulse 4s ease-in-out infinite alternate;
-    }
-    @keyframes glowPulse {
-      from { transform: scale(0.9); opacity: 0.6; }
-      to   { transform: scale(1.1); opacity: 1; }
-    }
+    .lang-band { border-top: 1px solid var(--glass-brd); border-bottom: 1px solid var(--glass-brd); padding: 46px 0; overflow: hidden; }
+    .marquee { display: flex; gap: 60px; white-space: nowrap; animation: scroll 26s linear infinite; width: max-content; }
+    .marquee span { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 46px); color: rgba(243,233,220,0.5); }
+    .marquee span b { color: var(--gold); }
+    @keyframes scroll { to { transform: translateX(-50%); } }
 
-    /* Phone frame */
-    .phone-frame {
-      position: relative; z-index: 2;
-      width: 260px;
-      animation: phoneFloat 6s ease-in-out infinite;
-    }
-    @keyframes phoneFloat {
-      0%,100% { transform: translateY(0px) rotate(1.5deg); }
-      50%      { transform: translateY(-18px) rotate(-1.5deg); }
-    }
-    .phone-shell {
-      background: linear-gradient(160deg, #1C1108 0%, #120C06 100%);
-      border: 1.5px solid rgba(245,235,224,0.12);
-      border-radius: 44px;
-      padding: 14px;
-      box-shadow:
-        0 60px 120px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(245,235,224,0.04) inset,
-        0 1px 0 rgba(245,235,224,0.15) inset;
-      position: relative; overflow: hidden;
-    }
-    .phone-shell::before {
-      content: '';
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 80px; height: 28px;
-      background: #080401;
-      border-radius: 0 0 16px 16px;
-      z-index: 10;
-    }
-    .phone-notch {
-      position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
-      width: 60px; height: 18px;
-      background: #080401;
-      border-radius: 0 0 12px 12px;
-      z-index: 11;
-    }
-    .phone-screen {
-      background: linear-gradient(160deg, #1A0F08 0%, #0F0804 100%);
-      border-radius: 32px;
-      overflow: hidden;
-      aspect-ratio: 9/19.5;
-      display: flex; flex-direction: column;
-      position: relative;
-    }
-    /* Screen header */
-    .ps-header {
-      padding: 40px 20px 16px;
-      background: linear-gradient(to bottom, rgba(168,52,31,0.15), transparent);
-    }
-    .ps-greeting {
-      font-size: 11px; color: rgba(245,235,224,0.4); margin-bottom: 4px;
-    }
-    .ps-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px; color: var(--cream);
-    }
-    /* Recipe card */
-    .ps-card {
-      margin: 0 16px 12px;
-      background: linear-gradient(135deg, rgba(168,52,31,0.2), rgba(168,52,31,0.05));
-      border: 1px solid rgba(168,52,31,0.25);
-      border-radius: 18px; padding: 16px;
-      position: relative; overflow: hidden;
-    }
-    .ps-card::before {
-      content: '🍛';
-      position: absolute; right: -8px; top: -8px;
-      font-size: 64px; opacity: 0.15;
-    }
-    .ps-card-tag {
-      font-size: 9px; font-weight: 700; letter-spacing: 1px;
-      text-transform: uppercase; color: rgba(240,136,106,0.8);
-      margin-bottom: 6px;
-    }
-    .ps-card-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 16px; color: var(--cream);
-      margin-bottom: 8px;
-    }
-    .ps-card-meta {
-      display: flex; gap: 10px;
-    }
-    .ps-meta-chip {
-      font-size: 10px; color: rgba(245,235,224,0.45);
-      background: rgba(245,235,224,0.06);
-      padding: 3px 8px; border-radius: 100px;
-    }
-    /* Import row */
-    .ps-import-row {
-      margin: 0 16px 12px;
-      background: rgba(245,235,224,0.04);
-      border: 1px solid rgba(245,235,224,0.07);
-      border-radius: 14px; padding: 12px 14px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .ps-import-icon {
-      width: 32px; height: 32px; border-radius: 8px;
-      background: rgba(255,0,0,0.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; flex-shrink: 0;
-    }
-    .ps-import-text { flex: 1; min-width: 0; }
-    .ps-import-title { font-size: 11px; font-weight: 600; color: var(--cream); margin-bottom: 2px; }
-    .ps-import-sub { font-size: 10px; color: rgba(245,235,224,0.35); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .ps-import-check {
-      width: 22px; height: 22px; border-radius: 50%;
-      background: rgba(31,122,79,0.2); border: 1px solid rgba(31,122,79,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; flex-shrink: 0;
-    }
-    /* Bottom nav */
-    .ps-nav {
-      margin-top: auto;
-      padding: 12px 20px 20px;
-      display: flex; justify-content: space-around;
-      border-top: 1px solid rgba(245,235,224,0.06);
-    }
-    .ps-nav-item {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
-      font-size: 10px; color: rgba(245,235,224,0.3);
-    }
-    .ps-nav-item.active { color: #F0886A; }
-    .ps-nav-icon { font-size: 18px; }
-    /* AI assistant bubble */
-    .ps-ai-row {
-      margin: 0 16px 12px;
-      background: linear-gradient(135deg, rgba(232,184,74,0.08), rgba(232,184,74,0.03));
-      border: 1px solid rgba(232,184,74,0.15);
-      border-radius: 14px; padding: 12px 14px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .ps-ai-icon { font-size: 20px; }
-    .ps-ai-text { font-size: 11px; color: rgba(245,235,224,0.6); font-style: italic; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .why-list { list-style: none; }
+    .why-list li { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--glass-brd); }
+    .why-list .tick { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; background: rgba(63,160,122,0.15); color: var(--green); display: grid; place-items: center; font-weight: 800; }
+    .why-list h4 { font-size: 16.5px; font-weight: 700; }
+    .why-list p { color: var(--muted); font-size: 14px; margin-top: 2px; }
 
-    /* Floating chips around phone */
-    .phone-chip {
-      position: absolute;
-      background: rgba(20,12,6,0.9);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(245,235,224,0.12);
-      border-radius: 12px; padding: 9px 13px;
-      display: flex; align-items: center; gap: 8px;
-      white-space: nowrap;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-      z-index: 10;
-    }
-    .chip-emoji { font-size: 18px; }
-    .chip-body { display: flex; flex-direction: column; gap: 1px; }
-    .chip-title { font-size: 12px; font-weight: 700; color: var(--cream); }
-    .chip-sub { font-size: 10px; color: rgba(245,235,224,0.4); }
+    .faq { max-width: 820px; margin: 0 auto; }
+    .q { border: 1px solid var(--glass-brd); border-radius: 16px; margin-bottom: 12px; overflow: hidden; background: var(--glass); }
+    .q summary { padding: 20px 22px; font-weight: 600; font-size: 16.5px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .q summary::-webkit-details-marker { display: none; }
+    .q summary .plus { color: var(--gold); font-size: 22px; transition: transform .3s; }
+    .q[open] summary .plus { transform: rotate(45deg); }
+    .q .a { padding: 0 22px 20px; color: var(--muted); font-size: 15px; }
 
-    .chip-a { top: 5%; right: -5%; animation: chipA 7s ease-in-out infinite; }
-    .chip-b { top: 38%; left: -5%; animation: chipB 9s ease-in-out infinite; }
-    .chip-c { bottom: 12%; right: -5%; animation: chipC 8s ease-in-out 0.5s infinite; }
+    .cta-box { text-align: center; border-radius: 34px; padding: 74px 30px; position: relative; overflow: hidden;
+      background: linear-gradient(150deg, rgba(192,67,31,0.16), rgba(232,184,74,0.08)); border: 1px solid rgba(232,184,74,0.24); }
+    .cta-box h2 { font-size: clamp(32px, 5vw, 56px); }
+    .store-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+    .store { display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px; border-radius: 16px; background: #0d0805; border: 1px solid var(--glass-brd); transition: transform .25s, border-color .25s; }
+    .store:hover { transform: translateY(-3px); border-color: rgba(232,184,74,0.5); }
+    .store .sub { font-size: 11px; color: var(--muted); } .store .big { font-size: 16px; font-weight: 700; }
 
-    @keyframes chipA { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-10px) rotate(1deg)} }
-    @keyframes chipB { 0%,100%{transform:translateY(0) rotate(1deg)} 50%{transform:translateY(-14px) rotate(-1deg)} }
-    @keyframes chipC { 0%,100%{transform:translateY(0) rotate(0.5deg)} 50%{transform:translateY(-12px) rotate(-1.5deg)} }
+    footer { border-top: 1px solid var(--glass-brd); padding: 54px 0 34px; }
+    .foot-grid { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; align-items: flex-start; }
+    .foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .foot-links a { color: var(--muted); font-size: 14px; } .foot-links a:hover { color: var(--ink); }
+    .foot-bottom { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--glass-brd); color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
-    /* ══ DIVIDER LINE ════════════════════════════════════════════ */
-    .bottom-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 10;
-      padding: 20px 48px;
-      display: flex; align-items: center; justify-content: space-between;
-      background: linear-gradient(to top, rgba(8,4,1,0.9) 0%, transparent 100%);
-    }
-    .bottom-left {
-      font-size: 12px; color: rgba(245,235,224,0.18);
-    }
-    .bottom-right {
-      display: flex; gap: 24px;
-    }
-    .bottom-right a {
-      font-size: 12px; color: rgba(245,235,224,0.25);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .bottom-right a:hover { color: rgba(245,235,224,0.6); }
-
-    /* ══ RESPONSIVE ══════════════════════════════════════════════ */
     @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 100px 28px 100px;
-        text-align: center;
-        gap: 56px;
-      }
-      .hero-left { align-items: center; }
-      .hero-desc { max-width: 500px; }
-      .waitlist-block { max-width: 100%; }
-      .hero-right { order: -1; }
-      .phone-frame { width: 220px; }
-      .chip-a, .chip-b, .chip-c { display: none; }
-      .phone-glow { width: 220px; height: 220px; }
-      nav { padding: 18px 24px; }
-      .nav-pill { display: none; }
-      .bottom-bar { padding: 16px 24px; }
-      .store-row { justify-content: center; }
-      .cd-row { justify-content: center; }
-    }
-
-    @media (max-width: 500px) {
-      h1 { font-size: 40px; }
-      .cd-num { width: 68px; height: 68px; font-size: 34px; border-radius: 12px; }
-      .hero { padding-top: 90px; }
+      .hero-grid, .split { grid-template-columns: 1fr; }
+      .phone-stage { margin-top: 30px; } .phone { transform: rotateY(-10deg) rotateX(4deg); }
+      .nav-links { display: none; }
+      .steps { grid-template-columns: 1fr; }
+      .bento { grid-template-columns: 1fr; }
+      .card.big, .card.sm, .card.wide { grid-column: span 1; }
+      section { padding: 72px 0; }
     }
   </style>
 </head>
 <body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="aurora"></div>
+  <div class="steam"><i></i><i></i><i></i><i></i><i></i></div>
 
-<div class="aurora"></div>
-<div class="grain"></div>
-
-<!-- Nav -->
-<nav>
-  <a href="/" class="logo">
-    <div class="logo-mark">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path d="M12 4C9.5 4 7.5 5.5 6.5 7.5C5 7.2 3 8.5 3 11c0 2 1.5 3.5 3.5 3.5H18c1.7 0 3-1.3 3-3 0-1.5-1-2.7-2.5-3C18 6 15.5 4 12 4z" fill="rgba(255,248,238,0.9)"/>
-        <path d="M9 15v5M12 15v5M15 15v5" stroke="rgba(255,248,238,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="logo-text">Rasan<b>Ai</b></span>
-  </a>
-  <div class="nav-pill">Coming Soon</div>
-</nav>
-
-<!-- Hero -->
-<section class="hero">
-
-  <!-- LEFT -->
-  <div class="hero-left">
-
-    <div class="launch-badge">
-      <div class="badge-dot-wrap"><div class="badge-dot"></div></div>
-      <span class="badge-text">Launching on iOS &amp; Android</span>
-    </div>
-
-    <h1>
-      <span class="line-italic">Your Rasoi,</span>
-      <span class="line-gold">Reimagined</span>
-      <span>by AI.</span>
-    </h1>
-
-    <p class="hero-desc">
-      Import recipes from <strong>YouTube, Instagram & TikTok</strong>.
-      Scan your <strong>handwritten cards</strong>.
-      Plan meals with AI. Cook hands-free.
-      India's smartest cooking companion — coming to your pocket.
-    </p>
-
-    <!-- Countdown -->
-    <div class="countdown-block">
-      <div class="cd-label">Launching in</div>
-      <div class="cd-row">
-        <div class="cd-unit">
-          <div class="cd-num" id="cd-d">90</div>
-          <div class="cd-tag">Days</div>
-        </div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit">
-          <div class="cd-num" id="cd-h">00</div>
-          <div class="cd-tag">Hrs</div>
-        </div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit">
-          <div class="cd-num" id="cd-m">00</div>
-          <div class="cd-tag">Min</div>
-        </div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit">
-          <div class="cd-num" id="cd-s">00</div>
-          <div class="cd-tag">Sec</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Waitlist -->
-    <div class="waitlist-block">
-      <form class="wl-form" id="wl-form" onsubmit="joinWaitlist(event)">
-        <input class="wl-input" id="wl-email" type="email" placeholder="Enter your email — get early access" required />
-        <button class="wl-btn" type="submit">
-          Notify Me
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-      <div class="wl-success" id="wl-success">🎉 You're on the list! We'll notify you at launch.</div>
-      <div class="wl-meta">
-        <div class="wl-count">
-          <div class="wl-avatars">
-            <div class="wl-avatar">👨🏽</div>
-            <div class="wl-avatar">👩🏻</div>
-            <div class="wl-avatar">👨🏾</div>
-            <div class="wl-avatar">👩🏽</div>
-          </div>
-          <span id="wl-num">Join 247 others</span> on the waitlist
-        </div>
-      </div>
-    </div>
-
-    <!-- Store badges -->
-    <div class="store-row">
-      <div class="store-btn">
-        <span class="store-icon">🍎</span>
-        <div class="store-text">
-          <span class="store-sub">Download on the</span>
-          <span class="store-name">App Store</span>
-        </div>
-        <span class="store-soon">Soon</span>
-      </div>
-      <div class="store-btn">
-        <span class="store-icon">▶️</span>
-        <div class="store-text">
-          <span class="store-sub">Get it on</span>
-          <span class="store-name">Google Play</span>
-        </div>
-        <span class="store-soon">Soon</span>
-      </div>
-    </div>
-
+  <div class="utensils" id="utensils" aria-hidden="true">
+    <!-- pressure cooker -->
+    <span class="ut u-near" style="top:13%; left:6%; --dur:54s; --dir:1; --del:-6s;"><svg viewBox="0 0 24 24"><path d="M5.5 9.5h11v7a3 3 0 0 1-3 3h-5a3 3 0 0 1-3-3z"/><path d="M4.5 9.5h13"/><path d="M16.5 11.5h3.5a1.2 1.2 0 0 1 0 2.4H16.5"/><path d="M11 9.5V7.6"/><path d="M9.9 7.6h2.2l-.4-1.5h-1.4z"/></svg></span>
+    <!-- kadai -->
+    <span class="ut u-mid" style="top:70%; left:11%; --dur:66s; --dir:-1; --del:-22s;"><svg viewBox="0 0 24 24"><path d="M4.5 9.5h15a7.5 7 0 0 1-15 0z"/><circle cx="2.9" cy="8.6" r="1.7"/><circle cx="21.1" cy="8.6" r="1.7"/></svg></span>
+    <!-- chef knife -->
+    <span class="ut u-mid" style="top:28%; left:81%; --dur:60s; --dir:1; --del:-12s;"><svg viewBox="0 0 24 24"><path d="M3 17c5-.6 9.5-3 13-7.4L18.5 6c.7-.9 2 .2 1.5 1.2-2 4-6.4 7-11 8.3L4 17.8z"/><path d="M4 17.8 2.5 21"/></svg></span>
+    <!-- tava -->
+    <span class="ut u-far" style="top:8%; left:58%; --dur:80s; --dir:-1; --del:-4s;"><svg viewBox="0 0 24 24"><ellipse cx="10" cy="12.5" rx="8" ry="3"/><path d="M17.8 11.8 23 10.6"/></svg></span>
+    <!-- serving spoon -->
+    <span class="ut u-near" style="top:76%; left:83%; --dur:50s; --dir:-1; --del:-16s;"><svg viewBox="0 0 24 24"><ellipse cx="8.5" cy="8" rx="3" ry="4.3" transform="rotate(-32 8.5 8)"/><path d="M11 10.5 19.5 20"/></svg></span>
+    <!-- ladle (karchi) -->
+    <span class="ut u-far" style="top:48%; left:90%; --dur:76s; --dir:1; --del:-30s;"><svg viewBox="0 0 24 24"><path d="M5 10h10a5 5 0 0 1-10 0z"/><path d="M13.5 8 19 3"/></svg></span>
+    <!-- belan (rolling pin) -->
+    <span class="ut u-mid" style="top:83%; left:45%; --dur:64s; --dir:1; --del:-40s;"><svg viewBox="0 0 24 24"><rect x="5.5" y="9" width="13" height="6" rx="3"/><path d="M2 12h3.5M18.5 12H22"/></svg></span>
+    <!-- chimta (tongs) -->
+    <span class="ut u-far" style="top:19%; left:38%; --dur:84s; --dir:-1; --del:-52s;"><svg viewBox="0 0 24 24"><path d="M12 4C10 9 9 15 8 20.5M12 4c2 5 3 11 4 16.5"/><circle cx="12" cy="3.4" r="1.1"/></svg></span>
+    <!-- mortar & pestle -->
+    <span class="ut u-near" style="top:57%; left:25%; --dur:58s; --dir:-1; --del:-9s;"><svg viewBox="0 0 24 24"><path d="M4.5 11a7.5 4 0 0 0 15 0"/><path d="M4.5 11.6a7.5 5 0 0 0 15 0"/><path d="M13.5 3.2 17 10.4"/></svg></span>
   </div>
 
-  <!-- RIGHT — Phone mockup -->
-  <div class="hero-right">
-    <div class="phone-glow"></div>
+  <div class="content">
+    <header id="hdr">
+      <div class="wrap nav">
+        <a class="brand" href="/"><img class="dot" src="/logo-mark.svg" alt="RasanAi logo" width="34" height="34" /><span class="wm">Rasan<b>Ai</b></span></a>
+        <nav class="nav-links">
+          <a href="#how">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#languages">Languages</a>
+          <a href="#faq">FAQ</a>
+          <a href="#" id="intro-nav" onclick="openWelcome();return false;">&#9654; Watch intro</a>
+        </nav>
+        <a href="#download" class="btn">Get the app</a>
+      </div>
+    </header>
 
-    <div class="phone-frame">
-      <div class="phone-shell">
-        <div class="phone-notch"></div>
-        <div class="phone-screen">
-
-          <div class="ps-header">
-            <div class="ps-greeting">Good morning, Chef 👋</div>
-            <div class="ps-title">What's cooking today?</div>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow"><span class="pulse"></span> Live on iOS. Android on the way.</span>
+          <h1 class="hero-title">Cook anything.<br /><span class="grad">In your language.</span></h1>
+          <p class="hero-sub">Paste a <span class="hl">YouTube link</span> or snap <span class="hl">Amma's handwritten recipe</span>. RasanAi turns it into a clean, step by step recipe you can actually cook. In six Indian languages.</p>
+          <div class="hero-cta">
+            <a href="#download" class="btn">Download free <span>&rarr;</span></a>
+            <a href="#how" class="btn ghost">See how it works</a>
           </div>
-
-          <!-- Imported recipe card -->
-          <div class="ps-card">
-            <div class="ps-card-tag">📹 Imported from YouTube</div>
-            <div class="ps-card-name">Butter Chicken Masala</div>
-            <div class="ps-card-meta">
-              <span class="ps-meta-chip">⏱ 45 min</span>
-              <span class="ps-meta-chip">🍽 4 servings</span>
-            </div>
+          <div class="hero-meta">
+            <div class="m"><b>6</b><span>Indian languages</span></div>
+            <div class="m"><b>15</b><span>Free imports</span></div>
+            <div class="m"><b>AI</b><span>Cooking assistant</span></div>
           </div>
-
-          <!-- Import row -->
-          <div class="ps-import-row">
-            <div class="ps-import-icon">📸</div>
-            <div class="ps-import-text">
-              <div class="ps-import-title">Scan Handwritten Recipe</div>
-              <div class="ps-import-sub">Nani's Dal Makhani — digitised ✨</div>
-            </div>
-            <div class="ps-import-check">✓</div>
-          </div>
-
-          <!-- AI row -->
-          <div class="ps-ai-row">
-            <div class="ps-ai-icon">🧠</div>
-            <div class="ps-ai-text">"Add 1 tsp garam masala and stir for 2 minutes…"</div>
-          </div>
-
-          <!-- Bottom nav -->
-          <div class="ps-nav">
-            <div class="ps-nav-item active">
-              <div class="ps-nav-icon">🏠</div>
-              <div>Home</div>
-            </div>
-            <div class="ps-nav-item">
-              <div class="ps-nav-icon">📖</div>
-              <div>Recipes</div>
-            </div>
-            <div class="ps-nav-item">
-              <div class="ps-nav-icon">📅</div>
-              <div>Plan</div>
-            </div>
-            <div class="ps-nav-item">
-              <div class="ps-nav-icon">🛒</div>
-              <div>Cart</div>
+        </div>
+        <div class="phone-stage">
+          <div class="phone" id="phone">
+            <div class="screen">
+              <div class="screen-top">
+                <div class="app-tag">Just imported</div>
+                <div class="app-h">Today's Rasoi</div>
+              </div>
+              <div class="feed">
+                <div class="track">
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Butter Chicken</h4><p><span class="src yt">YouTube</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Masala Dosa</h4><p><span class="src hw">Scanned</span> Serves 2</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1596797038530-2c107229654b?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Rogan Josh</h4><p><span class="src yt">YouTube</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Paneer Butter Masala</h4><p><span class="src hw">Scanned</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Crispy Samosa</h4><p><span class="src yt">YouTube</span> Makes 12</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Homestyle Veg Thali</h4><p><span class="src yt">YouTube</span> Serves 3</p></div></div>
+                  <!-- duplicate set for a seamless loop -->
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Butter Chicken</h4><p><span class="src yt">YouTube</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Masala Dosa</h4><p><span class="src hw">Scanned</span> Serves 2</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1596797038530-2c107229654b?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Rogan Josh</h4><p><span class="src yt">YouTube</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Paneer Butter Masala</h4><p><span class="src hw">Scanned</span> Serves 4</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1601050690597-df0568f70950?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Crispy Samosa</h4><p><span class="src yt">YouTube</span> Makes 12</p></div></div>
+                  <div class="fc"><div class="fc-img" style="background-image:url('https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=340&h=210&fit=crop&q=70')"></div><div class="fc-b"><h4>Homestyle Veg Thali</h4><p><span class="src yt">YouTube</span> Serves 3</p></div></div>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-tag">How it works</div>
+          <h2>From a link to <span class="grad">your kitchen</span> in seconds</h2>
+          <p>No typing out ingredients. No pausing videos ten times. Just the recipe, ready to cook.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal"><div class="n">1</div><h3>Paste or scan</h3><p>Drop a YouTube link, or snap a photo of a handwritten recipe card. That is the whole job.</p></div>
+          <div class="step reveal"><div class="n">2</div><h3>AI reads it</h3><p>RasanAi listens to the video and reads the notes, then writes out ingredients, quantities and clear steps.</p></div>
+          <div class="step reveal"><div class="n">3</div><h3>Cook and enjoy</h3><p>Read it in your language, follow hands free while you cook, and save it forever in your collection.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <div class="sec-tag">Everything inside</div>
+          <h2>Built for the way <span class="grad">India actually cooks</span></h2>
+          <p>Heritage recipes and viral reels, all in one warm little app.</p>
+        </div>
+        <div class="bento">
+          <div class="card big reveal"><div class="glow"></div><div class="ic">🎥</div><h3>Import from YouTube</h3><p>Paste any cooking video or Short. Our AI reads the description and captions, then hands you a clean recipe with exact steps. The <span class="hl">same viral dish</span>, minus the ads and the ten minute intro.</p></div>
+          <div class="card sm reveal"><div class="ic">📝</div><h3>Scan handwritten notes</h3><p>Turn <span class="hl">Amma's notebook</span> into a digital recipe, complete with a warm AI generated food photo.</p></div>
+          <div class="card sm reveal"><div class="ic">🗣️</div><h3>Six Indian languages</h3><p>English, Hindi, Tamil, Malayalam, Telugu and Kannada. Every recipe, every screen.</p></div>
+          <div class="card wide reveal"><div class="glow"></div><div class="ic">🤖</div><h3>Your AI rasoi companion</h3><p>Ask anything by voice or chat. Make it less spicy, swap paneer for tofu, scale it for eight people, or figure out what to do with last night's dal. It answers in your language.</p></div>
+          <div class="card sm reveal"><div class="ic">🗓️</div><h3>Weekly meal planner</h3><p>Plan the whole week in a few taps and let RasanAi build the list for you.</p></div>
+          <div class="card sm reveal"><div class="ic">🧺</div><h3>Smart shopping list</h3><p>Sorted by aisle. Tap to search a missing item on <span class="hl">Blinkit, Zepto or Instamart</span>.</p></div>
+          <div class="card wide reveal"><div class="ic">📚</div><h3>Your recipes, saved forever</h3><p>Every import and every scan lives in your personal collection, ready whenever you are hungry. Bookmark the ones you love and find them in a second.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Creator showcase: voice-authored recipes (the star feature) ── -->
+    <style>
+      .create { position: relative; overflow: hidden; }
+      .create::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 55% at 78% 30%, rgba(192,67,31,0.16), transparent 60%); pointer-events: none; }
+      .create-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 60px; align-items: center; position: relative; }
+      .create-beats { list-style: none; margin: 30px 0 0; padding: 0; display: grid; gap: 18px; }
+      .create-beats li { display: flex; gap: 14px; align-items: flex-start; }
+      .create-beats .bn { flex: none; width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; font-size: 20px; background: rgba(232,184,74,0.12); border: 1px solid var(--glass-brd); }
+      .create-beats h4 { font-family: 'DM Serif Display', serif; font-size: 18px; color: var(--cream); margin: 0 0 3px; font-weight: 400; }
+      .create-beats p { color: var(--muted); font-size: 14.5px; line-height: 1.5; margin: 0; }
+      .reel-wrap { display: flex; flex-direction: column; align-items: center; }
+      .reel-frame { position: relative; width: 100%; max-width: 300px; aspect-ratio: 9 / 16; border-radius: 30px; overflow: hidden; border: 1px solid rgba(243,233,220,0.14); background: #0A0603; box-shadow: 0 34px 90px rgba(0,0,0,0.55); }
+      .reel-poster { position: absolute; inset: 0; background: radial-gradient(120% 70% at 30% 18%, rgba(232,184,74,0.28), transparent 58%), linear-gradient(162deg, #C0431F, #7E2413 55%, #0A0603); }
+      .reel-chip { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: 12px; font-weight: 800; color: #1a0f06; background: var(--gold); padding: 5px 11px; border-radius: 999px; letter-spacing: .02em; }
+      .reel-live { position: absolute; top: 15px; right: 14px; z-index: 2; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--cream); }
+      .reel-live i { width: 7px; height: 7px; border-radius: 50%; background: #ff5a4d; box-shadow: 0 0 0 0 rgba(255,90,77,0.6); animation: reelpulse 1.8s infinite; }
+      @keyframes reelpulse { 0% { box-shadow: 0 0 0 0 rgba(255,90,77,0.55); } 70% { box-shadow: 0 0 0 9px rgba(255,90,77,0); } 100% { box-shadow: 0 0 0 0 rgba(255,90,77,0); } }
+      .reel-play { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; }
+      .reel-play .pbtn { width: 74px; height: 74px; border-radius: 50%; background: rgba(243,233,220,0.95); display: grid; place-items: center; box-shadow: 0 12px 34px rgba(0,0,0,0.45); transition: transform .25s; }
+      .reel-frame:hover .pbtn { transform: scale(1.06); }
+      .reel-cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 20px 16px 18px; background: linear-gradient(to top, rgba(10,6,3,0.94), rgba(10,6,3,0.5) 55%, transparent); }
+      .reel-cap .t { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--cream); line-height: 1.3; }
+      .reel-cap .s { font-size: 12.5px; color: var(--gold-lt); margin-top: 5px; letter-spacing: .01em; }
+      .reel-note { margin-top: 14px; font-size: 12px; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+      @media (max-width: 880px) { .create-grid { grid-template-columns: 1fr; gap: 42px; } .reel-frame { margin: 0 auto; } }
+    </style>
+    <section id="create" class="create">
+      <div class="wrap">
+        <div class="create-grid">
+          <div class="reveal">
+            <div class="sec-tag">New &middot; Speak your recipe</div>
+            <h2>Just speak. We'll write <span class="grad">the recipe</span>.</h2>
+            <p style="color:var(--muted); margin-top:16px; font-size:17px; max-width:520px;">Your family's recipes live in a voice, not on paper. Tap record, say it in Tamil or any of six languages, and RasanAi turns your words into a clean recipe you can cook and keep forever.</p>
+            <ul class="create-beats">
+              <li class="reveal"><div class="bn">&#127908;</div><div><h4>Speak your recipe</h4><p>Say it in your own words, in your language. No typing, no forms.</p></div></li>
+              <li class="reveal"><div class="bn">&#10024;</div><div><h4>RasanAi structures it</h4><p>Your voice becomes clear ingredients and step by step method, ready to review.</p></div></li>
+              <li class="reveal"><div class="bn">&#128228;</div><div><h4>Keep it. Share it.</h4><p>It lives in your Created collection forever, and shares as a branded RasanAi card.</p></div></li>
+            </ul>
+            <p class="chef-accent" style="font-size:19px; margin-top:24px; margin-bottom:22px;">Author your first recipe and become one of our Founding Chefs.</p>
+            <a href="#download" class="btn">Start creating <span>&rarr;</span></a>
+          </div>
+          <div class="reveal reel-wrap">
+            <!-- When the Tamil explainer is ready, replace .reel-poster + .reel-play with:
+                 <video class="reel-poster" playsinline muted loop autoplay preload="metadata" poster="/create-reel-poster.jpg"><source src="VIDEO_URL.mp4" type="video/mp4"></video> -->
+            <div class="reel-frame">
+              <div class="reel-poster"></div>
+              <span class="reel-chip">Tamil demo</span>
+              <span class="reel-live"><i></i>0:20</span>
+              <div class="reel-play"><div class="pbtn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#C0431F" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="reel-cap"><div class="t">&ldquo;தக்காளி சாதம் செய்யறது&hellip;&rdquo;</div><div class="s">Chef speaks, RasanAi writes the recipe</div></div>
+            </div>
+            <div class="reel-note">Explainer video &middot; coming soon</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="languages" class="lang-band">
+      <div class="marquee">
+        <span>English</span><span><b>தமிழ்</b></span><span>हिन्दी</span><span><b>മലയാളം</b></span><span>తెలుగు</span><span><b>ಕನ್ನಡ</b></span>
+        <span>English</span><span><b>தமிழ்</b></span><span>हिन्दी</span><span><b>മലയാളം</b></span><span>తెలుగు</span><span><b>ಕನ್ನಡ</b></span>
+      </div>
     </div>
 
-    <!-- Floating chips -->
-    <div class="phone-chip chip-a">
-      <span class="chip-emoji">✨</span>
-      <div class="chip-body">
-        <div class="chip-title">AI Recipe Generated</div>
-        <div class="chip-sub">From your YouTube link</div>
+    <section>
+      <div class="wrap split">
+        <div class="reveal">
+          <div class="sec-tag">Why RasanAi</div>
+          <h2>The recipe app that <span class="grad">speaks your kitchen</span></h2>
+          <p style="color:var(--muted); margin-top:16px; font-size:17px;">Most recipe apps are built for someone else's food. This one is built for yours. For the dosa on a Sunday and the biryani on a festival, told the way your family tells it.</p>
+        </div>
+        <ul class="why-list reveal">
+          <li><div class="tick">✓</div><div><h4>Heritage first</h4><p>The only app that turns a handwritten family recipe into something you can cook from forever.</p></div></li>
+          <li><div class="tick">✓</div><div><h4>Truly multilingual</h4><p>Not just translated buttons. Every ingredient and every step, in six Indian languages.</p></div></li>
+          <li><div class="tick">✓</div><div><h4>Fast and clean</h4><p>Import once and it is cached for everyone. No clutter, no endless scrolling, just cooking.</p></div></li>
+          <li><div class="tick">✓</div><div><h4>Free to start</h4><p>Fifteen imports on the house. Upgrade only when you fall in love with it.</p></div></li>
+        </ul>
       </div>
-    </div>
-    <div class="phone-chip chip-b">
-      <span class="chip-emoji">📅</span>
-      <div class="chip-body">
-        <div class="chip-title">Meal Plan Ready</div>
-        <div class="chip-sub">This week · 7 meals</div>
-      </div>
-    </div>
-    <div class="phone-chip chip-c">
-      <span class="chip-emoji">🛒</span>
-      <div class="chip-body">
-        <div class="chip-title">Grocery List</div>
-        <div class="chip-sub">12 items · ₹840</div>
-      </div>
-    </div>
+    </section>
 
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head reveal"><div class="sec-tag">Good to know</div><h2>Questions, <span class="grad">answered</span></h2></div>
+        <div class="faq">
+          <details class="q reveal"><summary>How does RasanAi import a recipe from YouTube? <span class="plus">+</span></summary><div class="a">Paste a YouTube video or Short link into the app. The AI reads the video description and captions, then returns a clean recipe with ingredients, quantities and step by step instructions. If a video has no recipe text, it tells you honestly.</div></details>
+          <details class="q reveal"><summary>Can it really read handwriting? <span class="plus">+</span></summary><div class="a">Yes. Snap a photo of a recipe card or a notebook page and RasanAi transcribes it, structures it, and generates a warm food photo to go with it. It reads English, Hindi and Tamil handwriting.</div></details>
+          <details class="q reveal"><summary>Which languages are supported? <span class="plus">+</span></summary><div class="a">Every recipe comes in six languages: English, Hindi, Tamil, Malayalam, Telugu and Kannada. You can set the whole app to your language too.</div></details>
+          <details class="q reveal"><summary>Is it free? <span class="plus">+</span></summary><div class="a">You get fifteen free recipe imports to start. RasanAi Pro unlocks unlimited imports, the AI cooking assistant, the meal planner and the smart shopping list.</div></details>
+          <details class="q reveal"><summary>Does it work for Instagram or TikTok? <span class="plus">+</span></summary><div class="a">For now RasanAi imports from YouTube, which is the most reliable source. For an Instagram or TikTok recipe, take a screenshot of the caption and use the Scan feature. It reads the text for you.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="chef">
+      <div class="wrap">
+        <div class="chef-grid">
+          <div class="chef-media reveal">
+            <div class="chef-glow"></div>
+            <img class="chef-photo" src="/chef-dev.jpg" alt="Chef Dev, RasanAi's first chef" width="330" height="496" />
+            <div class="chef-bubble">Let's cook! &#127859;</div>
+            <div class="chef-seal">
+              <svg class="ring" viewBox="0 0 118 118">
+                <defs><path id="chefcirc" d="M59,59 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+                <text><textPath href="#chefcirc" startOffset="0%">OUR FIRST RASANAI CHEF &#8226; OUR FIRST RASANAI CHEF &#8226; </textPath></text>
+              </svg>
+              <div class="disc"><div class="star">&#9733;</div><div class="t1">Dev</div><div class="t2">First Chef</div></div>
+            </div>
+          </div>
+          <div class="chef-text reveal">
+            <div class="chef-eyebrow">Our story</div>
+            <h2 class="chef-h">Meet our <span class="grad">First Chef</span>.</h2>
+            <p class="chef-p">RasanAi began at home. We are building it so every family recipe finds its way to the next little cook. This is Dev, our very first RasanAi Chef, and the reason we care so much about getting your amma's recipes exactly right.</p>
+            <div class="chef-accent">From our kitchen to yours.</div>
+            <div class="chef-name"><span class="cd"></span> <b>Chef Dev</b> &middot; Our First Ambassador</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div class="sec-tag" style="color:var(--gold-lt);">Start cooking today</div>
+          <h2>Your next favorite recipe<br />is <span class="grad">one tap away</span></h2>
+          <p style="color:var(--muted); margin-top:16px; font-size:17px; max-width:520px; margin-inline:auto;">Download RasanAi, import your first recipe, and taste the difference a little AI makes.</p>
+          <div class="store-row">
+            <a href="https://apps.apple.com/app/id6775551440" class="store"><svg width="26" height="26" viewBox="0 0 24 24" fill="#F3E9DC" aria-hidden="true"><path d="M17.05 12.04c-.02-2.05 1.68-3.03 1.75-3.08-0.95-1.4-2.44-1.59-2.97-1.61-1.26-.13-2.47.74-3.11.74-.64 0-1.63-.72-2.68-.7-1.38.02-2.65.8-3.36 2.03-1.43 2.49-.37 6.17 1.03 8.19.68.99 1.5 2.1 2.56 2.06 1.03-.04 1.42-.66 2.66-.66 1.24 0 1.59.66 2.68.64 1.11-.02 1.81-1 2.49-2 .78-1.15 1.11-2.26 1.13-2.32-.02-.01-2.17-.83-2.19-3.29zM15.01 5.7c.56-.68.94-1.63.84-2.57-.81.03-1.79.54-2.37 1.22-.52.6-.97 1.56-.85 2.48.9.07 1.82-.46 2.38-1.13z"/></svg><div style="text-align:left;"><div class="sub">Download on the</div><div class="big">App Store</div></div></a>
+            <a href="#" class="store"><span style="font-size:24px;">🤖</span><div style="text-align:left;"><div class="sub">Coming soon on</div><div class="big">Google Play</div></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot-grid">
+          <div style="max-width:320px;">
+            <a class="brand" href="/" style="margin-bottom:14px; display:inline-flex;"><img class="dot" src="/logo-mark.svg" alt="RasanAi logo" width="34" height="34" /><span class="wm">Rasan<b>Ai</b></span></a>
+            <p style="color:var(--muted); font-size:14px; margin-top:10px;">Your Food. Your Rasa. Your Story. The AI cooking companion made for Indian kitchens.</p>
+            <a href="https://www.instagram.com/rasanai.app" target="_blank" rel="noopener" aria-label="RasanAi on Instagram" style="display:inline-flex; align-items:center; gap:8px; margin-top:14px; color:var(--muted); font-size:14px; text-decoration:none; transition:color .2s;" onmouseover="this.style.color='#E6A54B'" onmouseout="this.style.color='var(--muted)'">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5.2"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg>
+              @rasanai.app
+            </a>
+          </div>
+          <div class="foot-links">
+            <a href="#how">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#faq">FAQ</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
+            <a href="/refunds">Refunds</a>
+            <a href="https://www.instagram.com/rasanai.app" target="_blank" rel="noopener">Instagram</a>
+            <a href="mailto:support@rasanai.app">support@rasanai.app</a>
+          </div>
+        </div>
+        <div class="foot-bottom">
+          <span>© 2026 Testware Informatics Pvt Ltd, India. All rights reserved.</span>
+          <span>Made with <span style="color:var(--red-lt);">&#10084;</span> for healthy &amp; tasty food.</span>
+        </div>
+      </div>
+    </footer>
   </div>
-</section>
 
-<!-- Footer bar -->
-<div class="bottom-bar">
-  <div class="bottom-left">© 2026 Testware Informatics Pvt Ltd.</div>
-  <div class="bottom-right">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="mailto:support@rasanai.app">Contact</a>
-  </div>
-</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    const hdr = document.getElementById('hdr');
+    addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40));
 
-<script>
-  // Countdown to Sep 1 2026
-  const LAUNCH = new Date('2026-09-01T00:00:00+05:30');
-  function tick() {
-    const diff = LAUNCH - Date.now();
-    if (diff <= 0) return;
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    const set = (id, val) => {
-      const el = document.getElementById(id);
-      const str = String(val).padStart(2, '0');
-      if (el.textContent !== str) {
-        el.style.transition = 'transform 0.15s ease, opacity 0.15s ease';
-        el.style.transform = 'translateY(-4px)';
-        el.style.opacity = '0.5';
-        setTimeout(() => {
-          el.textContent = str;
-          el.style.transform = 'translateY(0)';
-          el.style.opacity = '1';
-        }, 150);
+    (function () {
+      const canvas = document.getElementById('bg-canvas');
+      if (!window.THREE) return;
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      const scene = new THREE.Scene();
+      const cam = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
+      cam.position.z = 20;
+
+      // (Ambient motion is now the drifting kitchen utensils layer below, not a
+      // generic particle cloud — see the .utensils element + parallax script.)
+
+      // Glowing wireframe cooking bowl (on brand: RasanAi is a steaming bowl)
+      const bowlPts = [];
+      for (let i = 0; i <= 16; i++) { const a = (i / 16) * (Math.PI * 0.60); const R = 4.7; bowlPts.push(new THREE.Vector2(Math.sin(a) * R + 0.12, -Math.cos(a) * R + R)); }
+      const bowl = new THREE.Mesh(
+        new THREE.LatheGeometry(bowlPts, 64),
+        new THREE.MeshBasicMaterial({ color: 0xE8B84A, wireframe: true, transparent: true, opacity: 0.20 })
+      );
+      bowl.position.set(8.5, -1.6, -3); bowl.rotation.x = -0.5;
+      scene.add(bowl);
+      // A faint rim ring to catch the light like a bowl edge
+      const rim = new THREE.Mesh(
+        new THREE.TorusGeometry(4.75, 0.06, 8, 64),
+        new THREE.MeshBasicMaterial({ color: 0xC0431F, transparent: true, opacity: 0.35 })
+      );
+      rim.position.set(8.5, 2.9, -3); rim.rotation.x = Math.PI / 2 - 0.5;
+      scene.add(rim);
+
+      let mx = 0, my = 0;
+      addEventListener('mousemove', e => { mx = (e.clientX / innerWidth - 0.5); my = (e.clientY / innerHeight - 0.5); });
+      addEventListener('resize', () => { cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+      renderer.setSize(innerWidth, innerHeight);
+
+      (function loop(t) {
+        requestAnimationFrame(loop);
+        bowl.rotation.y = t * 0.00030; rim.rotation.z = t * 0.00030;
+        cam.position.x += (mx * 4 - cam.position.x) * 0.04;
+        cam.position.y += (-my * 4 - cam.position.y) * 0.04;
+        cam.lookAt(0, 0, 0);
+        renderer.render(scene, cam);
+      })(0);
+    })();
+
+    const phone = document.getElementById('phone');
+    if (phone) addEventListener('mousemove', e => {
+      const rx = (e.clientY / innerHeight - 0.5) * -10, ry = (e.clientX / innerWidth - 0.5) * 18;
+      phone.style.transform = `rotateY(${ry - 4}deg) rotateX(${rx + 4}deg)`;
+    });
+
+    // Gentle mouse parallax for the drifting utensils (skipped for reduced motion)
+    const uLayer = document.getElementById('utensils');
+    if (uLayer && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      addEventListener('mousemove', e => {
+        const px = e.clientX / innerWidth - 0.5, py = e.clientY / innerHeight - 0.5;
+        uLayer.style.transform = `translate3d(${px * 14}px, ${py * 14}px, 0)`;
+      });
+    }
+
+    if (window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.reveal').forEach(el => {
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 86%' } });
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; });
+    }
+
+    // ── Curvy feed: tilt + recede each card by its distance from centre ──
+    (function () {
+      const feed = document.querySelector('.feed');
+      const track = feed && feed.querySelector('.track');
+      if (!feed || !track) return;
+      const cards = Array.from(track.children);
+      function curve() {
+        const fh = feed.clientHeight, mid = fh / 2;
+        let ty = 0;
+        const tf = getComputedStyle(track).transform;
+        if (tf && tf !== 'none') { try { ty = new DOMMatrixReadOnly(tf).m42; } catch (e) {} }
+        for (const c of cards) {
+          const cc = c.offsetTop + c.offsetHeight / 2 + ty;      // live visual centre
+          let d = (cc - mid) / mid;                              // -1 top .. 1 bottom
+          d = Math.max(-1.5, Math.min(1.5, d));
+          const rot = d * -34;                                   // tilt away at edges
+          const z = -Math.abs(d) * 78;                           // recede at edges
+          const sc = 1 - Math.abs(d) * 0.13;
+          c.style.transform = `translateZ(${z}px) rotateX(${rot}deg) scale(${sc})`;
+          c.style.opacity = Math.max(0.25, 1 - Math.abs(d) * 0.4);
+        }
+        requestAnimationFrame(curve);
       }
-    };
-    set('cd-d', d); set('cd-h', h); set('cd-m', m); set('cd-s', s);
-  }
-  tick(); setInterval(tick, 1000);
+      requestAnimationFrame(curve);
+    })();
+  </script>
 
-  // Waitlist
-  function joinWaitlist(e) {
-    e.preventDefault();
-    const email = document.getElementById('wl-email').value;
-    const list = JSON.parse(localStorage.getItem('rasa_wl') || '[]');
-    if (!list.includes(email)) { list.push(email); localStorage.setItem('rasa_wl', JSON.stringify(list)); }
-    const count = 247 + list.length;
-    document.getElementById('wl-form').style.display = 'none';
-    document.getElementById('wl-success').style.display = 'block';
-    document.getElementById('wl-num').textContent = `Join ${count} others`;
-  }
+  <!-- ── Welcome explainer modal ─────────────────────────────────── -->
+  <div id="welcome" class="welcome" role="dialog" aria-modal="true" aria-label="Welcome to RasanAi">
+    <div class="w-scrim"></div>
+    <div class="w-card" data-scene="0">
+      <div class="w-progress"><i></i></div>
+      <button class="w-skip" type="button">Skip &times;</button>
+      <div class="w-stage">
+        <div class="w-intro">
+          <img src="/logo-mark.svg" alt="RasanAi" width="78" height="78" />
+          <div class="wm">Rasan<b>Ai</b></div>
+          <div class="tag">Your Food. Your Rasa. Your Story.</div>
+        </div>
 
-  // Bump count from stored
-  window.addEventListener('DOMContentLoaded', () => {
-    const list = JSON.parse(localStorage.getItem('rasa_wl') || '[]');
-    document.getElementById('wl-num').textContent = `Join ${247 + list.length} others`;
-  });
-</script>
+        <div class="w-phone">
+          <div class="w-screen" data-view="search">
+            <div class="w-flash"></div>
 
+            <div class="w-view search">
+              <div class="ws-bar"><span class="ic">&#128269;</span> Chicken Biryani<span class="ws-cursor"></span></div>
+              <div class="ws-list">
+                <div class="ws-card">
+                  <div class="ws-thumb" style="background-image:url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200&h=140&fit=crop&q=70')"><span class="ws-dur">12:04</span></div>
+                  <div class="ws-meta"><b>Hyderabadi Chicken Biryani</b><span>Chef's Kitchen &middot; 4.2M views</span></div>
+                  <span class="ws-ext">Extract</span>
+                </div>
+                <div class="ws-card">
+                  <div class="ws-thumb" style="background-image:url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=200&h=140&fit=crop&q=70')"><span class="ws-dur">8:31</span></div>
+                  <div class="ws-meta"><b>Restaurant Style Biryani</b><span>Home Foodie &middot; 1.1M views</span></div>
+                </div>
+                <div class="ws-card">
+                  <div class="ws-thumb" style="background-image:url('https://images.unsplash.com/photo-1596797038530-2c107229654b?w=200&h=140&fit=crop&q=70')"><span class="ws-dur">6:15</span></div>
+                  <div class="ws-meta"><b>Easy Chicken Dum Biryani</b><span>Tasty Rasoi &middot; 890K views</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-view recipe">
+              <div class="wr-top" style="background-image:url('https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=300&h=180&fit=crop&q=72')"><span class="wr-lang">&#2980;&#2990;&#3007;&#2996;&#3021;</span></div>
+              <div class="wr-h">Hyderabadi Chicken Biryani</div>
+              <div class="wr-sub">Ingredients</div>
+              <div class="wr-ing"><span>Basmati rice</span><span>Chicken</span><span>Yogurt</span><span>Saffron</span><span>Fried onions</span></div>
+              <div class="wr-sub">Method</div>
+              <div class="wr-steps">
+                <div class="wr-step"><span class="n">1</span>Marinate the chicken in yogurt and spices for 30 minutes.</div>
+                <div class="wr-step"><span class="n">2</span>Par-boil the rice with whole spices, then layer it over the chicken.</div>
+              </div>
+            </div>
+
+            <div class="w-view cook">
+              <div class="wc">
+                <div class="wc-tag">STEP 3 OF 8</div>
+                <div class="wc-step">Layer the rice over the chicken, then scatter fried onions and saffron milk.</div>
+                <div class="wc-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="wc-mic"><span class="dot"></span> Listening&hellip; say &ldquo;next&rdquo;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-end">
+          <img src="/logo-mark.svg" alt="RasanAi" width="62" height="62" />
+          <div class="et">RasanAi</div>
+          <div class="es">Your Food. Your Rasa. Your Story.</div>
+          <div class="ebtns">
+            <a class="w-cta" href="https://apps.apple.com/app/id6775551440">&#63743;&nbsp; Download on the App Store</a>
+            <button class="w-explore" type="button">Explore the site</button>
+          </div>
+        </div>
+      </div>
+      <div class="w-caption"><b>Meet RasanAi</b></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('welcome');
+      if (!modal) return;
+      const card    = modal.querySelector('.w-card');
+      const screen  = modal.querySelector('.w-screen');
+      const capWrap = modal.querySelector('.w-caption');
+      const capEl   = capWrap.querySelector('b');
+      const bar     = modal.querySelector('.w-progress i');
+
+      const CAPS = ['Meet RasanAi', 'Search recipe videos, right inside', 'Extract in one tap', 'Your video, now a recipe', 'Cook hands-free, in your language'];
+      const VIEW = [null, 'search', 'search', 'recipe', 'cook', null];
+      const DUR  = [2200, 3400, 2600, 3600, 3400, 0];
+      const TOTAL = DUR.reduce((a, b) => a + b, 0);
+      let idx = 0, timer = null;
+
+      function setScene(i) {
+        idx = i;
+        card.dataset.scene = i;
+        if (VIEW[i]) screen.dataset.view = VIEW[i];
+        if (i < 5) { capEl.textContent = CAPS[i]; capWrap.classList.remove('pop'); void capWrap.offsetWidth; capWrap.classList.add('pop'); }
+        const before = DUR.slice(0, i).reduce((a, b) => a + b, 0);
+        bar.style.transition = 'none';
+        bar.style.width = (before / TOTAL * 100) + '%';
+        void bar.offsetWidth;
+        if (i < 5) { bar.style.transition = 'width ' + DUR[i] + 'ms linear'; bar.style.width = ((before + DUR[i]) / TOTAL * 100) + '%'; }
+        else { bar.style.width = '100%'; }
+      }
+      function advance() { if (idx < 5) { timer = setTimeout(() => { setScene(idx + 1); advance(); }, DUR[idx]); } }
+      function playFrom0() { clearTimeout(timer); setScene(0); advance(); }
+      function open() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; playFrom0(); }
+      function close() { clearTimeout(timer); modal.classList.remove('open'); document.body.style.overflow = ''; }
+
+      modal.querySelector('.w-skip').addEventListener('click', close);
+      modal.querySelector('.w-explore').addEventListener('click', close);
+      modal.querySelector('.w-scrim').addEventListener('click', close);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+      window.openWelcome = open;
+
+      // ── Master switch for the welcome pop-up ─────────────────────
+      //   true  = pops once per visitor on first load, "Watch intro" shown.
+      //   false = no auto pop-up AND the nav "Watch intro" link is hidden
+      //           (retires it completely). Flip back to true to bring it
+      //           back for the 1.2.0 launch. This one flag controls it all.
+      const WELCOME_AUTOPLAY = true;
+
+      if (!WELCOME_AUTOPLAY) {
+        const navLink = document.getElementById('intro-nav');
+        if (navLink) navLink.style.display = 'none';
+      } else {
+        // First visit only — auto-open once, then remember. Replay via nav link.
+        try {
+          if (!localStorage.getItem('rasanai_welcomed')) {
+            localStorage.setItem('rasanai_welcomed', '1');
+            setTimeout(open, 650);
+          }
+        } catch (e) { setTimeout(open, 650); }
+      }
+    })();
+  </script>
+
+  <!-- Metricool tracking -->
+  <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"31fc3b458048c228f3fea4a7e42e911d"})});</script>
 </body>
 </html>
