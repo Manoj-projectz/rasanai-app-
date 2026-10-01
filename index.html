@@ -575,6 +575,7 @@
       .create-beats p { color: var(--muted); font-size: 14.5px; line-height: 1.5; margin: 0; }
       .reel-wrap { display: flex; flex-direction: column; align-items: center; }
       .reel-frame { position: relative; width: 100%; max-width: 300px; aspect-ratio: 9 / 16; border-radius: 30px; overflow: hidden; border: 1px solid rgba(243,233,220,0.14); background: #0A0603; box-shadow: 0 34px 90px rgba(0,0,0,0.55); }
+      .reel-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
       .reel-poster { position: absolute; inset: 0; background: radial-gradient(120% 70% at 30% 18%, rgba(232,184,74,0.28), transparent 58%), linear-gradient(162deg, #C0431F, #7E2413 55%, #0A0603); }
       .reel-chip { position: absolute; top: 14px; left: 14px; z-index: 2; font-size: 12px; font-weight: 800; color: #1a0f06; background: var(--gold); padding: 5px 11px; border-radius: 999px; letter-spacing: .02em; }
       .reel-live { position: absolute; top: 15px; right: 14px; z-index: 2; display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--cream); }
@@ -605,16 +606,12 @@
             <a href="#download" class="btn">Start creating <span>&rarr;</span></a>
           </div>
           <div class="reveal reel-wrap">
-            <!-- When the Tamil explainer is ready, replace .reel-poster + .reel-play with:
-                 <video class="reel-poster" playsinline muted loop autoplay preload="metadata" poster="/create-reel-poster.jpg"><source src="VIDEO_URL.mp4" type="video/mp4"></video> -->
+            <!-- Static launch thumbnail. When the explainer reel is ready, swap the <img>
+                 for a looping muted video:
+                 <video class="reel-thumb" playsinline muted loop autoplay preload="metadata" poster="create-reel-thumb.jpg"><source src="VIDEO_URL.mp4" type="video/mp4"></video> -->
             <div class="reel-frame">
-              <div class="reel-poster"></div>
-              <span class="reel-chip">Tamil demo</span>
-              <span class="reel-live"><i></i>0:20</span>
-              <div class="reel-play"><div class="pbtn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#C0431F" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div></div>
-              <div class="reel-cap"><div class="t">&ldquo;தக்காளி சாதம் செய்யறது&hellip;&rdquo;</div><div class="s">Chef speaks, RasanAi writes the recipe</div></div>
+              <img class="reel-thumb" src="create-reel-thumb.jpg" alt="Create your own recipe by voice in RasanAi" />
             </div>
-            <div class="reel-note">Explainer video &middot; coming soon</div>
           </div>
         </div>
       </div>
