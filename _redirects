@@ -1,2 +1,2 @@
-/privacy   /privacy.html   200
-/terms     /terms.html     200
+# Cloudflare Pages serves .html files at clean URLs automatically
+# /terms → terms.html and /privacy → privacy.html work natively — no rules needed
