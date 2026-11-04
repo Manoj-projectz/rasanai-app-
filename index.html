@@ -30,7 +30,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+Tamil:wght@500;600&display=swap" rel="stylesheet" />
 
   <!-- Structured data for search engines and AI answer engines (GEO) -->
   <script type="application/ld+json">
@@ -250,6 +250,42 @@
       .w-card, .w-intro img, .w-phone, .w-flash, .ws-card, .ws-ext, .wc-wave i { animation: none !important; }
       .w-phone, .ws-card { opacity: 1 !important; transform: none !important; }
     }
+
+    /* ── Thank-you card: Karky Research Foundation ──────────────────
+       Cream paper on the dark page, so their logo (black text) is shown
+       exactly as they made it, never recoloured. */
+    .thanks { padding: 16px 0 80px; }
+    .ty-card { position: relative; max-width: 640px; margin: 0 auto; }
+    .ty-card::before { content: ''; position: absolute; inset: 8% 4% -6%; z-index: 0; border-radius: 40px; filter: blur(40px);
+      background: radial-gradient(60% 60% at 30% 40%, rgba(232,184,74,.30), transparent 70%), radial-gradient(60% 60% at 75% 70%, rgba(192,67,31,.30), transparent 70%); }
+    .ty-paper { position: relative; z-index: 1; text-align: center; color: #2A1A10; border-radius: 20px; padding: 42px 44px 34px;
+      background: radial-gradient(120% 90% at 50% 0%, #FFFBF3, #F8EEDD 70%, #F1E3CB);
+      box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(232,184,74,.4);
+      transform: rotate(-1.2deg); transition: transform .5s cubic-bezier(.2,.9,.2,1); }
+    .ty-paper::before { content: ''; position: absolute; inset: 10px; border-radius: 13px; border: 1px solid rgba(168,52,31,.22); pointer-events: none; }
+    .ty-card:hover .ty-paper { transform: rotate(0deg) translateY(-4px); }
+    .ty-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #A8341F; }
+    .ty-logo { display: block; width: min(260px, 76%); height: auto; margin: 16px auto 4px; }
+    .ty-h { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.12; letter-spacing: -0.01em; color: #1F1410; margin-top: 10px; }
+    .ty-h span { color: #A8341F; }
+    :lang(ta) { font-family: 'Noto Serif Tamil', 'DM Serif Display', serif; }
+    .ty-ta { font-size: 16.5px; font-weight: 600; color: #7A2414; margin-top: 8px; }
+    .ty-p { color: #5A4636; font-size: 15px; line-height: 1.7; max-width: 480px; margin: 14px auto 0; }
+    .ty-p :lang(ta) { color: #2A1A10; font-weight: 600; font-size: .96em; white-space: nowrap; }
+    .ty-sign { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 22px; }
+    .ty-sig { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 18px; color: #7A2414; }
+    .ty-seal { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; flex: none; transform: rotate(-10deg);
+      background: radial-gradient(circle at 35% 30%, #D2553A, #A8341F 55%, #7A2414);
+      box-shadow: 0 6px 14px rgba(122,36,20,.35), inset 0 0 0 3px rgba(255,255,255,.12), inset 0 -4px 8px rgba(0,0,0,.25);
+      color: #FFF3E6; font-size: 11px; font-weight: 600; }
+    .foot-credit { margin-top: 14px; text-align: center; font-size: 13px; color: var(--muted); }
+    .foot-credit a { color: var(--gold-lt); border-bottom: 1px solid rgba(247,217,138,.3); }
+    @media (max-width: 600px) {
+      .ty-paper { padding: 34px 20px 28px; transform: rotate(-0.6deg); }
+      .ty-p { font-size: 14.5px; }
+      .ty-sign { flex-direction: column; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) { .ty-paper, .ty-card:hover .ty-paper { transform: none; transition: none; } }
 
     /* Serif italic accent line, used in the Create section */
     .chef-accent { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 23px; color: var(--gold-lt); margin-top: 20px; }
@@ -633,6 +669,22 @@
       </div>
     </section>
 
+    <section id="thanks" class="thanks" aria-labelledby="ty-title">
+      <div class="wrap">
+        <figure class="ty-card reveal">
+          <div class="ty-paper">
+            <div class="ty-eyebrow">With gratitude</div>
+            <img class="ty-logo" src="/partners/karefo-logo.png" alt="Karky Research Foundation (KaReFo)" width="900" height="272" loading="lazy" />
+            <h2 class="ty-h" id="ty-title">Thank you, <span>Karky Research Foundation</span></h2>
+            <p class="ty-ta" lang="ta">நன்றி, கார்க்கி ஆராய்ச்சி நிறுவனம்</p>
+            <p class="ty-p">We are building every Tamil kitchen word in RasanAi with the linguists at Madhan Karky's Karky Research Foundation, so that <span lang="ta">உளுத்தம் பருப்பு</span> is never "urad dal" spelled out in Tamil letters, <span lang="ta">பனீர்</span> is never mistaken for <span lang="ta">பன்னீர்</span>, and a <span lang="ta">குழம்பு</span> is never just a "curry".</p>
+            <p class="ty-p">Thank you for believing in our vision: every family recipe, in the language it was first cooked in.</p>
+            <div class="ty-sign"><span class="ty-sig">With heartfelt thanks, Team RasanAi</span><span class="ty-seal" lang="ta" aria-hidden="true">நன்றி</span></div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
     <section id="download">
       <div class="wrap">
         <div class="cta-box reveal">
@@ -673,6 +725,7 @@
           <span>© 2026 Testware Informatics Pvt Ltd, India. All rights reserved.</span>
           <span>Made with <span style="color:var(--red-lt);">&#10084;</span> for healthy &amp; tasty food.</span>
         </div>
+        <div class="foot-credit">Tamil food words in collaboration with <a href="#thanks">Karky Research Foundation</a></div>
       </div>
     </footer>
   </div>
